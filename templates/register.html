@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Register</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, rgb(22, 22, 22), rgb(24, 24, 24));
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            margin-top: 10vh;
+            margin-bottom: 8vh;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 1);
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .logo {
+            max-width: 35%;
+            height: auto;
+            margin-right: 1.5cm;
+        }
+        
+    </style>
+</head>
+    <img src="{{ url_for('static', filename='images/logo.png') }}" class=logo>
+    <div class="card">
+        <h1 class="mb-4 text-center">Register</h1>
+
+        <form method="POST" action="/register" id="registrationForm">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username"
+                    placeholder="Enter a unique username" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required
+                    placeholder="Enter your full name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required
+                    placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+                <label for="mobile_number" class="form-label">Mobile Number</label>
+                <input type="text" class="form-control" id="mobile_number" name="mobile_number" required
+                    placeholder="Enter your mobile number">
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="retailer" name="retailer">
+                <label class="form-check-label" for="retailer">I am a retailer</label>
+            </div>
+
+            <div id="retailer_fields" style="display:none;">
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" name="address">
+                </div>
+                <div class="mb-3">
+                    <label for="aadhar_number" class="form-label">Aadhar Number</label>
+                    <input type="text" class="form-control" id="aadhar_number" name="aadhar_number">
+                </div>
+                <div class="mb-3">
+                    <label for="pan_number" class="form-label">PAN Number</label>
+                    <input type="text" class="form-control" id="pan_number" name="pan_number">
+                </div>
+                <div class="mb-3">
+                    <label for="license_id" class="form-label">License ID</label>
+                    <input type="text" class="form-control" id="license_id" name="license_id">
+                </div>
+                <div class="mb-3">
+                    <label for="license_type" class="form-label">License Type</label>
+                    <input type="text" class="form-control" id="license_type" name="license_type">
+                </div>
+                <div class="mb-3">
+                    <label for="company_name" class="form-label">Company Name</label>
+                    <input type="text" class="form-control" id="company_name" name="company_name">
+                </div>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Register</button>
+
+            <div class="text-center mt-3">
+                <p> Go back to <a href="{{ url_for('login') }}">login</a></p>
+            </div>
+
+        </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        document.getElementById("retailer").addEventListener("change", function () {
+            var retailerFields = document.getElementById("retailer_fields");
+            retailerFields.style.display = this.checked ? "block" : "none";
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-cV81GwO9O1v/WZi4rE2he6I2SNRoFpnZc/JV+qSeujU0MNVqYQTW1n8TlHLB/KwJ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-eAJsU0myxxKo2w4eEgBIU1MWks3ZI6Y7heU30sM5B0DxtckF1Bcb7BDBYbeahzCx"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
