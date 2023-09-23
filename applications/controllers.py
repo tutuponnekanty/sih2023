@@ -236,7 +236,7 @@ def edit_product(product_id):
                     product.name = request.form["name"]
                     product.description = request.form["description"]
                     product.stock = request.form["stock"]
-                    product.cost = request.form["price"]  # Changed 'price' to 'cost'
+                    product.cost = request.form["price"] 
                     product.category_id = request.form["category"]
                     db.session.commit()
                     return redirect("/dashboard")
@@ -245,11 +245,6 @@ def edit_product(product_id):
     return redirect("/dashboard")
 
 
-
-
-# Assuming you've imported the necessary modules and initialized your Flask app
-from applications.database import db
-from flask import request, session, render_template, redirect
 
 # Cart
 @app.route("/cart", methods=["GET", "POST"])
